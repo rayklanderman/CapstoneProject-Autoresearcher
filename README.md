@@ -1,0 +1,113 @@
+# AutoResearcher  
+**Multi-Agent Crew for Instant, Citation-Rich Research Reports**  
+*From prompt to LaTeX PDF in under 10 minutes*
+
+[![Open in Kaggle](https://img.shields.io/badge/Kaggle-Notebook-20BEFF?logo=kaggle)](https://www.kaggle.com/rayklanderman/autoresearcher-capstone)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rayklanderman/CapstoneProject-Autoresearcher/blob/main/AutoResearcher_Capstone.ipynb)
+[![Vertex AI ADK](https://img.shields.io/badge/Vertex_AI_ADK-Java_Only-4285F4?logo=google-cloud)](https://google.github.io/adk-docs/)
+
+> ⚠️ **Note**: This is a **Python prototype**. The [official Vertex AI Agent Development Kit (ADK)](https://google.github.io/adk-docs/get-started/installation/) currently **only supports Java** (Maven/Gradle). This project demonstrates ADK-inspired agent architecture in Python for prototyping and evaluation purposes.
+
+---
+
+## 📌 Problem
+In 2025, researchers, analysts, and professionals spend 8–10 hours manually compiling comprehensive reports—searching sources, verifying facts, creating charts, writing sections, and formatting citations. Tools like ChatGPT or Perplexity provide summaries but cannot deliver **complete, reproducible, 15–20 page documents** with:
+- ✅ Real, traceable sources  
+- ✅ Verified claims  
+- ✅ Original data visualizations  
+- ✅ Proper academic structure  
+- ✅ Downloadable PDF/LaTeX output  
+
+---
+
+## 🤖 Solution: A Multi-Agent Research Crew
+AutoResearcher automates the full research pipeline using a **7-agent hierarchical system** that mimics a human research team:
+
+| Agent | Model | Tool | Role |
+|-------|-------|------|------|
+| **Supervisor** | Gemini 2.5 Pro | — | Orchestrates workflow via structured JSON delegation |
+| **Researcher** | Gemini 2.5 Flash | Tavily | Fetches live web sources (titles, URLs, snippets) |
+| **FactChecker** | Gemini 2.5 Pro | Tavily | Validates claims against collected sources |
+| **Visualizer** | Gemini 2.5 Flash | Python REPL | Generates Matplotlib charts (market growth, risk matrix) |
+| **Writer** | Gemini 2.5 Pro | — | Drafts structured academic sections |
+| **Formatter** | Gemini 2.5 Flash | — | Assembles final Markdown with TOC, figures, references |
+| **Compiler** | — | Pandoc + LaTeX | Converts Markdown → print-ready PDF |
+
+All agents share an in-memory dictionary (`MEMORY`) to pass state—simulating persistent collaboration.
+
+---
+
+## 🧪 Demo
+Given the prompt:  
+> *“Create a 15–20 page report on AI agents in healthcare in 2025 for hospital CIOs.”*
+
+The system produces:
+- 📚 **50+ real sources** from Tavily  
+- ✅ **Verified market stats** (e.g., $28.3B market in 2025)  
+- 📊 **2 dynamic charts**: market forecast + risk matrix  
+- 📄 **Downloadable PDF** with title, TOC, citations, and figures  
+
+✅ **Full pipeline runs in <10 minutes**  
+✅ **Zero hallucinated references**  
+✅ **Zero manual formatting**
+
+▶️ **Run it yourself**:  
+- [Kaggle Notebook](https://www.kaggle.com/rayklanderman/autoresearcher-capstone)  
+- [Open in Google Colab](https://colab.research.google.com/github/rayklanderman/CapstoneProject-Autoresearcher/blob/main/AutoResearcher_Capstone.ipynb)
+
+---
+
+## 🛠️ Tech Stack
+- **Agent Framework**: ADK-inspired Python prototype (`google.adk.agents` from `adk-python` GitHub)
+- **Models**: Gemini 2.5 Pro & Flash (`google-generativeai` SDK)
+- **Tools**: 
+  - Tavily (web search)
+  - Custom Python REPL (safe chart generation)
+  - Pandoc + LaTeX (`xelatex`) for PDF export
+- **Memory**: In-notebook shared dictionary (no ChromaDB/Vector Search)
+- **Environment**: Kaggle / Colab (secrets managed via platform secrets)
+
+> 🔒 **No API keys are hardcoded**—all loaded securely from secrets.
+
+---
+CapstoneProject-Autoresearcher/
+├── AutoResearcher_Capstone.ipynb # Full notebook (Cells 1–10)
+├── AutoResearcher_Healthcare_2025.md # Sample output
+├── AutoResearcher_Healthcare_2025.pdf # Sample output
+├── chart_market.png # Generated chart
+└── chart_risk.png # Generated chart
+
+
+---
+
+## ▶️ How to Run
+### On Kaggle (Recommended)
+1. Open the [Kaggle Notebook](https://www.kaggle.com/rayklanderman/autoresearcher-capstone)
+2. Go to **Add-ons → Secrets** and add:
+   - `PROJECT_ID`
+   - `GEMINI_API_KEY`
+   - `TAVILY_API_KEY`
+   - `SERVICE_ACCOUNT_JSON`
+3. Run all cells
+
+### On Google Colab
+1. Click **[Open in Colab](https://colab.research.google.com/github/rayklanderman/CapstoneProject-Autoresearcher/blob/main/AutoResearcher_Capstone.ipynb)**
+2. Use **Secrets** (Colab → Runtime → "Secrets") or replace `kaggle_secrets` with `getpass` + manual input
+3. Install dependencies and run
+
+> 💡 **Tip**: Record **Cell 7** for your demo video—it shows the full agent pipeline.
+
+---
+
+## ⚠️ Limitations & ADK Compliance
+- **Not official ADK**: The [Vertex AI ADK](https://google.github.io/adk-docs/get-started/installation/) **only supports Java** (Maven/Gradle). This is a **Python prototype**.
+- **Memory is ephemeral**: Uses a Python dict, not ChromaDB.
+- **Full ADK deployment requires Java + Spring Boot** per Google’s documentation.
+
+---
+
+## 📄 License
+For educational and capstone submission purposes only.  
+© 2025 Raymond Robert Klanderman
+
+## 📁 Repository Structure
