@@ -71,11 +71,11 @@ The system produces:
 
 ---
 CapstoneProject-Autoresearcher/
-├── AutoResearcher_Capstone.ipynb # Full notebook (Cells 1–10)
-├── AutoResearcher_Healthcare_2025.md # Sample output
+├── AutoResearcher_Capstone.ipynb   # Full notebook (Cells 1–10)
+├── AutoResearcher_Healthcare_2025.md  # Sample output
 ├── AutoResearcher_Healthcare_2025.pdf # Sample output
-├── chart_market.png # Generated chart
-└── chart_risk.png # Generated chart
+├── chart_market.png                # Generated market growth chart
+└── chart_risk.png                  # Generated risk matrix chart
 
 
 ---
