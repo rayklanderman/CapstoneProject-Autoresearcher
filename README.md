@@ -66,10 +66,7 @@ The system produces:
 - **Environment**: Kaggle / Colab (secrets managed via platform secrets)
 
 > 🔒 **No API keys are hardcoded**—all loaded securely from secrets.
-
-
 ---
-
 ## ▶️ How to Run
 ### On Kaggle (Recommended)
 1. Open the [Kaggle Notebook](https://www.kaggle.com/rayklanderman/autoresearcher-capstone)
@@ -88,21 +85,16 @@ The system produces:
 > 💡 **Tip**: Record **Cell 7** for your demo video—it shows the full agent pipeline.
 
 ---
-
 ## ℹ️ ADK Implementation Note
 This project uses the **official ADK for Python**, installed via:
 ```bash
 pip install "git+https://github.com/google/adk-python.git@main"
 ---
------
-
-
 ### 📄 License
 For educational and capstone submission purposes only.  
 © 2025 Raymond Robert Klanderman
 
 ## 📁 Repository Structure
-
 ```
 CapstoneProject-Autoresearcher/
 ├── autoresearcher.ipynb          # Main Jupyter notebook with the multi-agent research system
