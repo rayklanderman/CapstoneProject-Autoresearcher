@@ -94,8 +94,10 @@ This project uses the **official ADK for Python**, installed via:
 ```bash
 pip install "git+https://github.com/google/adk-python.git@main"
 ---
+-----
 
-## 📄 License
+
+### 📄 License
 For educational and capstone submission purposes only.  
 © 2025 Raymond Robert Klanderman
 
