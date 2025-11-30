@@ -61,6 +61,10 @@ AutoResearcher uses a **7-agent hierarchical system** built on the **Vertex AI A
 
 All agents share an in-notebook dictionary called `MEMORY`, enabling coordinated, stateful work.
 
+### **System Architecture**
+
+![AutoResearcher Architecture](https://raw.githubusercontent.com/rayklanderman/CapstoneProject-Autoresearcher/main/AutoResearcher%20Architecture.png)
+
 ---
 
 ## ▶️ Quickstart
