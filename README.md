@@ -111,3 +111,15 @@ For educational and capstone submission purposes only.
 © 2025 Raymond Robert Klanderman
 
 ## 📁 Repository Structure
+
+```
+CapstoneProject-Autoresearcher/
+├── autoresearcher.ipynb          # Main Jupyter notebook with the multi-agent research system
+├── LICENSE                        # License file
+├── README.md                      # This README file
+├── SECURITY.md                    # Security policy
+├── CONTRIBUTING.md                # Contributing guidelines
+├── CODE_OF_CONDUCT.md             # Code of conduct
+├── NOTICE                         # Legal notices and attributions
+└── SECRET_HANDLING.md             # Guidelines for handling secrets and API keys
+```
