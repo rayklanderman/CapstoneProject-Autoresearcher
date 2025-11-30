@@ -4,9 +4,7 @@
 
 [![Open in Kaggle](https://img.shields.io/badge/Kaggle-Notebook-20BEFF?logo=kaggle)](https://www.kaggle.com/rayklanderman/autoresearcher-capstone)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rayklanderman/CapstoneProject-Autoresearcher/blob/main/AutoResearcher_Capstone.ipynb)
-[![Vertex AI ADK](https://img.shields.io/badge/Vertex_AI_ADK-Java_Only-4285F4?logo=google-cloud)](https://google.github.io/adk-docs/)
-
-> ⚠️ **Note**: This is a **Python prototype**. The [official Vertex AI Agent Development Kit (ADK)](https://google.github.io/adk-docs/get-started/installation/) currently **only supports Java** (Maven/Gradle). This project demonstrates ADK-inspired agent architecture in Python for prototyping and evaluation purposes.
+[![Vertex AI ADK](https://img.shields.io/badge/Vertex_AI_ADK-Official_Python_Support-4285F4?logo=google-cloud)](https://google.github.io/adk-docs/get-started/python/)
 
 ---
 
@@ -21,7 +19,7 @@ In 2025, researchers, analysts, and professionals spend 8–10 hours manually co
 ---
 
 ## 🤖 Solution: A Multi-Agent Research Crew
-AutoResearcher automates the full research pipeline using a **7-agent hierarchical system** that mimics a human research team:
+AutoResearcher automates the full research pipeline using a **7-agent hierarchical system** built with the **official Vertex AI Agent Development Kit (ADK) for Python**.
 
 | Agent | Model | Tool | Role |
 |-------|-------|------|------|
@@ -33,7 +31,7 @@ AutoResearcher automates the full research pipeline using a **7-agent hierarchic
 | **Formatter** | Gemini 2.5 Flash | — | Assembles final Markdown with TOC, figures, references |
 | **Compiler** | — | Pandoc + LaTeX | Converts Markdown → print-ready PDF |
 
-All agents share an in-memory dictionary (`MEMORY`) to pass state—simulating persistent collaboration.
+All agents share an in-memory dictionary (`MEMORY`) to pass state—enabling stateful collaboration in notebook environments.
 
 ---
 
@@ -58,24 +56,16 @@ The system produces:
 ---
 
 ## 🛠️ Tech Stack
-- **Agent Framework**: ADK-inspired Python prototype (`google.adk.agents` from `adk-python` GitHub)
+- **Agent Framework**: **Official Vertex AI ADK for Python** (`google.adk.agents`)
 - **Models**: Gemini 2.5 Pro & Flash (`google-generativeai` SDK)
 - **Tools**: 
   - Tavily (web search)
   - Custom Python REPL (safe chart generation)
   - Pandoc + LaTeX (`xelatex`) for PDF export
-- **Memory**: In-notebook shared dictionary (no ChromaDB/Vector Search)
+- **Memory**: In-notebook shared dictionary
 - **Environment**: Kaggle / Colab (secrets managed via platform secrets)
 
 > 🔒 **No API keys are hardcoded**—all loaded securely from secrets.
-
----
-CapstoneProject-Autoresearcher/
-├── AutoResearcher_Capstone.ipynb   # Full notebook (Cells 1–10)
-├── AutoResearcher_Healthcare_2025.md  # Sample output
-├── AutoResearcher_Healthcare_2025.pdf # Sample output
-├── chart_market.png                # Generated market growth chart
-└── chart_risk.png                  # Generated risk matrix chart
 
 
 ---
@@ -92,18 +82,17 @@ CapstoneProject-Autoresearcher/
 
 ### On Google Colab
 1. Click **[Open in Colab](https://colab.research.google.com/github/rayklanderman/CapstoneProject-Autoresearcher/blob/main/AutoResearcher_Capstone.ipynb)**
-2. Use **Secrets** (Colab → Runtime → "Secrets") or replace `kaggle_secrets` with `getpass` + manual input
+2. Use **Secrets** (Colab → Runtime → "Secrets") or replace `kaggle_secrets` with manual input
 3. Install dependencies and run
 
 > 💡 **Tip**: Record **Cell 7** for your demo video—it shows the full agent pipeline.
 
 ---
 
-## ⚠️ Limitations & ADK Compliance
-- **Not official ADK**: The [Vertex AI ADK](https://google.github.io/adk-docs/get-started/installation/) **only supports Java** (Maven/Gradle). This is a **Python prototype**.
-- **Memory is ephemeral**: Uses a Python dict, not ChromaDB.
-- **Full ADK deployment requires Java + Spring Boot** per Google’s documentation.
-
+## ℹ️ ADK Implementation Note
+This project uses the **official ADK for Python**, installed via:
+```bash
+pip install "git+https://github.com/google/adk-python.git@main"
 ---
 
 ## 📄 License
